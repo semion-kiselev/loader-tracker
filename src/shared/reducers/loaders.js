@@ -5,7 +5,7 @@ const initialState = {};
 export const setLoader = createAction('SET_LOADER');
 export const clearLoader = createAction('CLEAR_LOADER');
 
-export const loaderReducer = handleActions({
+export const loadersReducer = handleActions({
     [setLoader]: (state, {payload: requestId}) => {
         return {
             ...state,
