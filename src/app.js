@@ -5,7 +5,7 @@ import {
     Route,
     Link
 } from "react-router-dom";
-import {Users} from '../modules/users/components/users';
+import {Users} from './modules/users/components/users';
 
 const Home = () => 'Home';
 
