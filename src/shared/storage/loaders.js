@@ -2,10 +2,10 @@ import {createAction, handleActions} from "redux-actions";
 
 const initialState = {};
 
-export const setLoader = createAction('SET_LOADER');
-export const clearLoader = createAction('CLEAR_LOADER');
+const setLoader = createAction('SET_LOADER');
+const clearLoader = createAction('CLEAR_LOADER');
 
-export const loadersReducer = handleActions({
+const loadersReducer = handleActions({
     [setLoader]: (state, {payload: requestId}) => {
         return {
             ...state,
@@ -22,3 +22,7 @@ export const loadersReducer = handleActions({
         return newState;
     }
 }, initialState);
+
+const loaderSelector = (state, requestId) => state.loaders[requestId];
+
+export {setLoader, clearLoader, loadersReducer, loaderSelector};

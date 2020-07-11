@@ -1,5 +1,5 @@
-import {setError} from '../reducers/errors';
-import {setLoader, clearLoader} from '../reducers/loaders';
+import {setError} from '../storage/errors';
+import {setLoader, clearLoader} from '../storage/loaders';
 
 export const trackLoaderAndError = (apiCallPromise, requestId, dispatch) => {
     dispatch(setLoader(requestId));

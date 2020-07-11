@@ -2,10 +2,10 @@ import {createAction, handleActions} from "redux-actions";
 
 const initialState = {};
 
-export const setError = createAction('SET_ERROR');
-export const clearError = createAction('CLEAR_ERROR');
+const setError = createAction('SET_ERROR');
+const clearError = createAction('CLEAR_ERROR');
 
-export const errorsReducer = handleActions({
+const errorsReducer = handleActions({
     [setError]: (state, {payload: {requestId, errorMessage}}) => {
         return {
             ...state,
@@ -22,3 +22,7 @@ export const errorsReducer = handleActions({
         return newState;
     }
 }, initialState);
+
+const errorSelector = (state, requestId) => state.errors[requestId];
+
+export {setError, clearError, errorsReducer, errorSelector}

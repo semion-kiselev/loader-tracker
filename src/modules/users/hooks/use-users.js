@@ -1,10 +1,9 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {loadUsers} from "./services/async-actions";
-import {loaderSelector, errorSelector} from '../../shared/selectors';
-import {clearError} from "../../shared/reducers/errors";
-import {usersSelector} from './services/selectors';
-import {LOAD_USERS_REQUEST} from './constants/requestIds';
+import {loadUsers, setUsers, usersSelector} from "../services/storage";
+import {loaderSelector} from '../../../shared/storage/loaders';
+import {clearError, errorSelector} from "../../../shared/storage/errors";
+import {LOAD_USERS_REQUEST} from '../constants/requestIds';
 
 export const useUsers = () => {
     const dispatch = useDispatch();
@@ -15,9 +14,10 @@ export const useUsers = () => {
     React.useEffect(() => {
         dispatch(loadUsers());
         return () => {
-            clearError(LOAD_USERS_REQUEST);
+            dispatch(clearError(LOAD_USERS_REQUEST));
+            dispatch(setUsers(null));
         }
     }, [dispatch]);
 
     return {users, isLoading, error};
-}
+};

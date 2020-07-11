@@ -1,6 +1,6 @@
 import React from 'react';
 import {LoadingStateViewer} from '../../../shared/components/loading-state-viewer';
-import {useUsers} from '../hooks';
+import {useUsers} from '../hooks/use-users';
 
 const renderUsers = (users) => users.map((user) => {
     return (
@@ -10,7 +10,7 @@ const renderUsers = (users) => users.map((user) => {
             <hr/>
         </div>
     );
-})
+});
 
 export const Users = () => {
     const {users, isLoading, error} = useUsers();
@@ -27,4 +27,4 @@ export const Users = () => {
             </LoadingStateViewer>
         </div>
     );
-}
+};
