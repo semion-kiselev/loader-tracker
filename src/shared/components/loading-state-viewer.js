@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const LoadingStateViewer = ({isLoading, error, data, children}) => {
+export const LoadingStateViewer = ({isLoading, error, data, children, ...rest}) => {
     if (isLoading) {
         return 'Is loading...';
     }
@@ -17,5 +17,5 @@ export const LoadingStateViewer = ({isLoading, error, data, children}) => {
         return null;
     }
 
-    return children(data);
+    return children({data, ...rest});
 }
